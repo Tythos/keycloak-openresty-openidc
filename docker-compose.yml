@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  openresty-svc:
+    build:
+      context: ./openresty-svc
+    ports:
+    - "8090:80"
+  
+  keycloak-svc:
+    build:
+      context: ./keycloak-svc
+    ports:
+    - "8080:8080"
