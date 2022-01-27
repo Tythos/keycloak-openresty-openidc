@@ -1,3 +1,9 @@
+Keycloak-OpenResty-OpenIDC
+==========================
+
+Question
+--------
+
 I am experimenting with a two-service docker-compose recipe, largely based on
 the following GitHub project:
 
@@ -46,3 +52,36 @@ credentials:
   * Set to "mypassword"
 
   * Temporary = OFF
+
+Answer
+------
+
+Authorization Servers such as Keycloak have a base / internet URL when running
+behind a reverse proxy. You don't need to do anything dynamic in the reverse
+proxy - have a look at the frontend URL configuration.
+
+Out of interest I just answered a similar question here, that may help you to
+understand the general pattern. Aim for good URLs (not localhost) and a
+discovery endpoint that returns intermet URLs rather than internal URLs.
+
+Many thanks to Gary Archer:
+
+  https://stackoverflow.com/users/9019885/gary-archer)
+
+He wrote the above reply to the original StackOverflow post:
+
+  https://stackoverflow.com/questions/70795255/configuring-keycloak-oidc-with-an-nginx-openresty-reverse-proxy/70854753#70854753
+
+Confirmation
+------------
+
+Most groovy. Upon closer inspection, based on your feedback, the
+KEYCLOAK_FRONTEND_URL environmental variable was set to
+"http://localhost:8080/auth" (see recent commit if you are coming upon this
+later in history), and the PROXY_ADDRESS_FORWARDING environmental variable was
+removed entirely. Not only does this address the frontend address issues
+(after a few try-fail iterations on the exact value), it even passes the
+successful authorization back through the correct flow now. Wonderful. The
+official Docker Hub page for jboss/keycloak was also useful:
+
+  https://hub.docker.com/r/jboss/keycloak
