@@ -9,8 +9,8 @@ function init()
         client_secret = "xcUh0eE5nCalyJBi2nGq6o1q3cYARdJg",
         redirect_uri_scheme = "http",
         logout_path = "/logout",
-        redirect_after_logout_uri = "http://keycloak-svc:8080/auth/realms/restybox-realm/protocol/openid-connect/logout?redirect_uri=http://localhost:8090/",
-        redirct_after_logout_with_id_token_hint = false,
+        redirect_after_logout_uri = "http://localhost:8080/auth/realms/restybox-realm/protocol/openid-connect/logout?redirect_uri=http://localhost:8090/",
+        redirect_after_logout_with_id_token_hint = false,
         use_nonce = false,
         session_contents = {id_token = true}
     }
