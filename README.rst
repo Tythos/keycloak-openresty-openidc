@@ -37,9 +37,7 @@ credentials:
 
 * Under Users > Add user:
 
-  * username = "testuser"
-
-  * email = "{{whatever}}"
+  * username = "tester"
 
   * email verified = ON
 
@@ -49,7 +47,7 @@ credentials:
 
   *	Go to "Credentials" tab
 
-  * Set to "mypassword"
+  * Set to "mypass"
 
   * Temporary = OFF
 

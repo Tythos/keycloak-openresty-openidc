@@ -6,7 +6,7 @@ services:
     build:
       context: ./openresty-svc
     ports:
-    - "8090:80"
+    - "8090:8090"
   
   keycloak-svc:
     build:
